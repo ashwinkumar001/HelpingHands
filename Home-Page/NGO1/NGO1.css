@@ -1,0 +1,16 @@
+body{background-color:#F5F5F5;}
+#par1{height:500px;width:100%;background-color:#fedcff;display:flex;flex-direction:column;align-items:stretch;justify-content:space-between;}
+#c2_1{height:50px;background-color:#af2291ab;border-radius:20px;}
+#c2_3{height:50px;background-color:#fab30dc7;border-radius:20px;}
+#c2_2{height:50px;background-color:#ef018a9c;border-radius:20px;}
+#c2_4{height:50px;background-color:#9fd026c2;border-radius:20px;}
+#par2{height:750px;width:100%;background-color:#aed4b0;display:flex;flex-direction:row;}
+#c3_1{height:90px;width:100%;background-color:#20caaf;border-top-left-radius:20px; border-top-right-radius:20px; padding-top:5px;}
+#c3_2{height:700px;width:40%;background-color:#20caaf;margin-left:100px;margin-top:20px;margin-right:10px;border-radius:20px;}
+
+#par3{height:750px;width:100%;background-color:#aed4b0;display:flex;flex-direction:row;}
+#c4{height:700px;width:70%;background-color:#20caaf;display:flex;flex-direction:row;margin-left:30px;margin-top:30px;border-radius:25px;}
+#c4_1{height:500px;width:300px;background-color:#20caaf;margin-left:40px;margin-top:30px;}
+#c4_2{height:500px;width:300px;background-color:#20caaf;margin-left:40px;margin-top:30px;}
+#c4_3{height:500px;width:300px;background-color:#20caaf;margin-left:40px;margin-top:30px;}
+#c5{height:500px;width:400px;background-color:#20caaf;margin-left:40px;margin-top:30px;margin-right:10px;}
