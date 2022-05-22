@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="money.css">
+	<link rel="icon" href="../../home-page-images/test-icon2.jpg">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,300" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<title>Donate Money | Helping Hands</title>
+</head>
+<body>
+	<header>
+		<a href="../../home-page.html">
+			<img src="../../home-page-images/test-icon2.jpg" height="65px" width="65px" style="margin-top:7.5px; margin-left:15px;" >
+			</img>
+		</a>
+		<nav>
+			<a class="header-tab" href="../../home-page.html">Home
+			</a> 
+			<a class="header-tab" href="../../Volunteer/Volunteer.html" target="_self">Volunteer
+			</a> 
+			<a class="header-tab" href="../donate-now.html" target="_self"><span style="word-spacing:3px;"> Donate</span>
+			</a> 
+			<a class="header-tab" href="../../We-Care/we-care.html" target="_self"><span style="word-spacing:3px;">WeCare</span>
+			</a> 
+			<a class="header-tab" href="../../I-Pledge/i-pledge.html" target="_self"><span style="word-spacing:3px;">i-Pledge</span>
+			</a> 
+			<a  class="header-tab"href="http://www.facebook.com" target="_blank">
+				<img class="header-icons" src="../../home-page-images/facebook1.png" alt="facebook">
+				</img>
+			</a>
+			<a class="header-tab" href="http://www.instagram.com" target="_blank">
+				<img class="header-icons" src="../../home-page-images/instagram1.png" alt="instagram">
+				</img>
+			</a>
+			<a class="header-tab" href="http://www.twitter.com" target="_blank">
+				<img class="header-icons" src="../../home-page-images/twitter1.png" alt="twitter">
+				</img>
+			</a>
+		</nav>
+	</header>
+	<div class="page-container">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<a class="logo" href="pay.triip.me" title="Triip Pay"></a>
+					<h1 class="title">Payment Gateway:</h1>
+					<p>Donate today to provide medical supplies, food, and education to countless people in need. Your small donation can help out those unfortunate people out of poverty & educate them. </p>
+					<h1 class="title2"> Contribute Now</h1>
+					<p style="text-align:center;font-weight:700;"> We support all of the major cards</p>
+					<h2>
+						<div class="label">Payment Amount:</div>
+						<span class="amount"><input type="number" name="donation_amount" id="money"  placeholder="Enter Amount in Rs.">
+					</h2>
+					<br/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="card-checkout" id="card-checkout">
+						<div class="card-types">
+							<div class="card_type fa fa-cc-discover" id="discover"></div>
+							<div class="card_type fa fa-cc-amex" id="amex"></div>
+							<div class="card_type fa fa-cc-mastercard" id="mastercard"></div>
+							<div class="card_type fa fa-cc-visa" id="visa"></div>
+						</div>
+						<div class="card-options">
+							<form class="card-details" id="card-form">
+								<div class="form-group">
+									<label for="cc-number">Card Number:</label>
+									<input id="cc-number" name="cc-number" class="cc-number" placeholder="XXXX XXXX XXXX XXXX" data-numeric required>
+								</div>
+								<div class="form-group">
+									<label for="cc-name">Card Holder:</label>
+									<input id="cc-name" name="cc-name" class="cc-name" placeholder="Full Name" required>
+								</div>
+								<div class="form-group">
+									<label for="cc-expiry">Expiry:</label>
+									<div class="row">
+										<div class="col-4">
+											<input class="cc-expiry inline" placeholder="MM/YY" required>
+										</div>
+										<div class="col-4">
+											<input class="cc-cvc" placeholder="CVC" data-numeric required>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="card-confirm">
+							<button id="submit-button" class="button-confirm">
+								<i class="fa fa-lock"></i> Submit
+							</button>
+						</div>
+					</div>
+					<div id="loading" class="loading hidden">
+						<div class="load-8">
+                <div class="line"></div>
+            </div>
+					</div>
+					<div id="success" class="success hidden">
+						<h4>Payment Succeeded !!</h4>
+						<p>Your confirmation code is: <br/><code>AD56346546</code></p>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+	<footer>
+		 <a href="../../home-page.html" style="color:white;text-decoration:none;">
+			@Helping Hands
+		</a>
+	</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/3.0.0/jquery.payment.min.js"></script>
+	<script src="main.js"></script>
+ <script>
+  (function($, win){
+	var ccName = $('input.cc-name'),
+        ccNumber = $('input.cc-number'),
+        ccExpiry = $('input.cc-expiry'),
+        ccCVC = $('input.cc-cvc');
+    
+    $('[data-numeric]').payment('restrictNumeric');
+    
+    ccNumber.payment('formatCardNumber');
+    ccExpiry.payment('formatCardExpiry');
+    ccCVC.payment('formatCardCVC');
+    
+    ccName.on('focus', function() {
+        $(this).data('placeholder', $(this).attr('placeholder'))
+        $(this).attr('placeholder', 'Name Surname');
+    }).blur(function() {
+        $(this).attr('placeholder', $(this).data('placeholder'))
+    });
+    
+    ccNumber.on('focus', function() {
+        $(this).data('placeholder', $(this).attr('placeholder'))
+        $(this).attr('placeholder', 'xxxx xxxx xxxx xxxx');
+    }).blur(function() {
+        $(this).attr('placeholder', $(this).data('placeholder'))
+    }).on('change paste input', function(){
+			var $el = $(this),
+      num = $el.val(),
+      type = $.payment.cardType(num),
+      valid = $.payment.validateCardNumber(num);
+      console.log(type, valid);
+			if (((type == 'visa') || type == 'mastercard' || type == 'discover' || type == 'amex')) {
+				if (!$('#' + type).hasClass('active')) {
+					$('.card_type').removeClass('active');
+					$('#' + type).addClass('active');	
+				}
+			} else {
+				$el.removeClass('valid').removeClass('invalid');
+				$('.card_type').removeClass('active');
+			}
+        if (valid && ((type == 'visa') || type == 'mastercard' || type == 'discover' || type == 'amex')) {
+          var name = $('#cc-name'),
+              exp = $('#cc-expiry');
+
+          $el.removeClass('invalid').addClass('valid');
+        } else if (String(num).length >= 19) {
+          $el.addClass('invalid')
+        }
+		});
+    
+    ccExpiry.on('focus', function() {
+        $(this).data('placeholder', $(this).attr('placeholder'))
+        $(this).attr('placeholder', 'MM/YY');
+    }).blur(function() {
+        $(this).attr('placeholder', $(this).data('placeholder'))
+    });
+    
+    ccCVC.on('focus', function() {
+        $(this).data('placeholder', $(this).attr('placeholder'))
+        $(this).attr('placeholder', 'xxx');
+    }).blur(function() {
+        $(this).attr('placeholder', $(this).data('placeholder'))
+    });
+		
+	$('#submit-button').on('click', function() {
+		$('#card-checkout').slideUp(200, function() {
+			$('#loading').fadeIn();
+			setTimeout(function() {
+				$('#loading').fadeOut(function() {
+					$('#success').prepend('<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle className="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path className="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>');
+					$('#success').slideDown();
+				});
+			}, 2000)
+		})
+		return false;
+	})
+})(jQuery, window)
+</script>
+</body>
+</html>
